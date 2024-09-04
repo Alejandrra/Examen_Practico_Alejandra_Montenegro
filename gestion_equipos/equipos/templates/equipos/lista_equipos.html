@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Equipos</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h2>Lista de Equipos</h2>
+        <ul>
+            {% for equipo in equipos %}
+                <li>
+                    <a href="{% url 'detalle_equipo' equipo.pk %}">{{ equipo.nombre }}</a>
+                    <a href="{% url 'eliminar_equipo' equipo.pk %}">Eliminar</a>
+                </li>
+            {% endfor %}
+        </ul>
+        <a href="{% url 'agregar_equipo' %}">Agregar nuevo equipo</a>
+    </div>
+</body>
+</html>
+
+
+
+
